@@ -25,8 +25,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['40.86.76.160','10.0.0.4',
-'mugasdwear.centralus.cloudapp.azure.com']
+ALLOWED_HOSTS = [os.environ.get('HOST1'),os.environ.get('HOST2'),
+os.environ.get('HOST3')]
 
 
 # Application definition
