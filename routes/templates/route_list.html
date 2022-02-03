@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <table>
+            <thead>
+                <th>From</th>
+                <th>To</th>
+                <th>Distance</th>
+                <th>Road Condition</th>
+                <th>Cost</th>
+            </thead>
+            <tbody>
+            {% for route in routes %}
+                <tr>
+                    <td>{{ route.origin }}</td>
+                    <td>{{ route.destination }}</td>
+                    <td>{{ route.distance }}</td>
+                    <td>{%if route.condition%}
+                        Good
+                        {%else%}
+                        Bad
+                        {%endif%}</td>
+                    <td>{{ route.cost }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        
+        </table>
+        
+    </div>
+
+{% endblock %}
