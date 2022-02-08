@@ -17,7 +17,7 @@ def loadData(request):
             obj = Route.objects.create(origin=origin, destination=destination,
             distance=distance,cost=cost)
             obj.save()
-        return HttpResponse("Data loaded")
+        return HttpResponse(obj.id)
     return HttpResponse("Data not loaded")
 
 @csrf_exempt
@@ -37,3 +37,12 @@ def fetchData(request):
                 return HttpResponse("ERROR:-Not found")
 
     return HttpResponse("ERROR:-Not found")
+
+@csrf_exempt
+def stopData(request):
+    if request.method=='POST':
+        data = request.POST.get('data')
+        id = data.split('=')[1]
+
+        print(id)
+    return HttpResponse("SUCCESS")
