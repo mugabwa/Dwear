@@ -1,8 +1,13 @@
+from xml.dom.minidom import Document
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from routes.models import Route
+from routes.models import Route, RouteData
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import FileSystemStorage
 from django.core import serializers
+
+
+from routes.forms import FileForm
 
 @csrf_exempt
 def loadData(request):
@@ -46,3 +51,20 @@ def stopData(request):
 
         print(id)
     return HttpResponse("SUCCESS")
+@csrf_exempt
+def sendData(request):
+    if request.method=="POST":
+        data = request.POST.get('data')
+        print(data)
+    return HttpResponse("SUCCESS")
+
+@csrf_exempt
+def uploadFile(request):
+    if request.method == 'POST':
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('route-list')
+    else:
+        form = FileForm()
+    return render(request, 'mfile.html', {'form': form})
