@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import fetchData, loadData, stopData, sendData, uploadFile
+from .views import fetchData, loadData, login_user, register_user, stopData, sendData, uploadFile
 
 urlpatterns = [
     path('load_data/', loadData),
@@ -7,4 +7,6 @@ urlpatterns = [
     path('stop_data/',stopData),
     path('send_data/',sendData),
     path('save_file/',uploadFile,name='save_file'),
+    path('register_user/',register_user),
+    path('login_user/', login_user),
 ]

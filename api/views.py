@@ -1,12 +1,11 @@
-from xml.dom.minidom import Document
+from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from routes.models import Route, RouteData
 from django.views.decorators.csrf import csrf_exempt
-from django.core.files.storage import FileSystemStorage
-from django.core import serializers
+from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
 
-
+from client.models import CustomUser
 from routes.forms import FileForm
 
 @csrf_exempt
@@ -68,3 +67,35 @@ def uploadFile(request):
     else:
         form = FileForm()
     return render(request, 'mfile.html', {'form': form})
+
+
+@csrf_exempt
+def register_user(request):
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        info = dict(item.split("=") for item in data.split("#"))
+        email = info.get('email')
+        psw = info.get('pwd')
+        reg = CustomUser.objects.create_user(email=email,password=psw)
+        try:
+            reg.save()
+            return HttpResponse(reg)
+        except IntegrityError:
+            return HttpResponse("Key already exists")
+    return HttpResponse("Error in communication!")
+
+@csrf_exempt
+def login_user(request):
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        info = dict(item.split("=") for item in data.split("#"))
+        email = info.get('email')
+        psw = info.get('pwd')
+        user = authenticate(username=email, password = psw)
+        print(user)
+        print(info)
+        if user is not None:
+            return HttpResponse(user.id)
+        else:
+            return HttpResponse("Failed to login")
+    return HttpResponse("Error in communication")
