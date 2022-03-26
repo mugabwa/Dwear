@@ -1,32 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>
-        <table>
-            <thead>
-                <th>From</th>
-                <th>To</th>
-                <th>Distance</th>
-                <th>Road Condition</th>
-                <th>Cost</th>
-            </thead>
-            <tbody>
-            {% for route in routes %}
+
+<div class="row">
+    <div class="col-lg-12 d-flex grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-wrap justify-content-between">
+            <h4 class="card-title mb-3">Routes Covered</h4>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Distance</th>
+                    <th>Road Condition</th>
+                    <th>Cost</th>
+                </thead>
+              <tbody>
+                {% for route in routes %}
                 <tr>
-                    <td>{{ route.origin }}</td>
-                    <td>{{ route.destination }}</td>
-                    <td>{{ route.distance }}</td>
-                    <td>{%if route.condition%}
-                        Good
-                        {%else%}
-                        Bad
-                        {%endif%}</td>
-                    <td>{{ route.cost }}</td>
+                    <td>
+                        <div class="d-flex">
+                            Origin
+                            <div class="font-weight-bold mt-1">{{ route.origin }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Destination
+                            <div class="font-weight-bold mt-1">{{ route.destination }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Distance
+                            <div class="font-weight-bold mt-1">{{ route.distance }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Road Condition
+                            {% if route.condition %}
+                            <div class="font-weight-bold mt-1">Good</div>
+                            {% else %}
+                            <div class="font-weight-bold mt-1">Bad</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Original Cost
+                            <div class="font-weight-bold mt-1">{{ route.cost }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            Calculated Cost
+                            <div class="font-weight-bold mt-1">Calculated</div>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-secondary">edit actions</button>
+                    </td>
                 </tr>
-            {% endfor %}
-            </tbody>
-        
-        </table>
-        
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
 {% endblock %}
