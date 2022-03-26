@@ -21,7 +21,7 @@
                 {% for route in routes %}
                 <tr>
                     <td>
-                        <div class="d-flex">
+                        <div>
                             Origin
                             <div class="font-weight-bold mt-1">{{ route.origin }}</div>
                         </div>
@@ -45,6 +45,7 @@
                             <div class="font-weight-bold mt-1">Good</div>
                             {% else %}
                             <div class="font-weight-bold mt-1">Bad</div>
+                            {% endif %}
                         </div>
                     </td>
                     <td>
