@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>D_Wear Adminstration</title>
-    <link rel="stylesheet" href="vendors/typicons.font/font/typicons.css">
-    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/typicons.font/font/typicons.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vertical-layout-light/style.css' %}">
     <link rel="shortcut icon" href="images/favicon.png" />
   </head>
     <body>
+      <!-- my changes -->
       <div class="cointainer-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -162,10 +163,9 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-          
+          {% block content %}
+        {% endblock %}
         </div>
       </div>
-        {% block content %}
-        {% endblock %}
     </body>
 </html>
