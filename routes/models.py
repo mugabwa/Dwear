@@ -16,6 +16,7 @@ class RouteData(models.Model):
     route = models.ForeignKey(Route, on_delete=models.CASCADE)
     filepath = models.FileField(upload_to='files/', null=True, verbose_name='')
     uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
+    calculated_cost = models.FloatField(default=0.0)
 
     def __str__(self) -> str:
         return str(self.route)
