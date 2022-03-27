@@ -61,7 +61,7 @@
                         </div>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-secondary">More Details</button>
+                        <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-secondary">Edit Info</button>
                     </td>
                 </tr>
                 {% endfor %}
