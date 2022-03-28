@@ -1,44 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <div class="col-lg-8 d-flex grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex flex-wrap justify-content-between">
-            <h4 class="card-title mb-3">Update Route</h4>
-          </div>
-          <div class="row">
-            <form class="forms-sample">
-              <div class="form-group">
-                <label for="origin">Origin</label>
-                <input type="text" class="form-control p-input" id="origin" aria-describedby="originHelp" value="{{ route.origin }}">
-                <small id="originHelp" class="form-text text-muted text-success"><span class="fa fa-info mt-1"></span>  Alter the original point. </small>
-              </div>
-              <div class="form-group">
-                <label for="dest">Destination</label>
-                <input type="text" class="form-control p-input" id="dest" aria-describedby="destHelp" value="{{ route.destination }}">
-                <small id="destHelp" class="form-text text-muted text-success"><span class="fa fa-info mt-1"></span>  Alter the destination point. </small>
-              </div>
-              <div class="form-group">
-                <label for="distance">Distance</label>
-                <input type="t" class="form-control p-input" id="distance" aria-describedby="distHelp" value="{{ route.distance }}">
-                <small id="distHelp" class="form-text text-muted text-success"><span class="fa fa-info mt-1"></span>  Change the distance in kms. </small>
-              </div>
-              <div class="form-group">
-                <label for="cost">Cost</label>
-                <input type="text" class="form-control p-input" id="cost" aria-describedby="costHelp" value="{{ route.cost }}">
-                <small id="costHelp" class="form-text text-muted text-success"><span class="fa fa-info mt-1"></span>  Change the cost in kenya shillings. </small>
-              </div>
-              {{ form }}
-              
-              <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-          </form>
-        
-          </div>
+  <div class="col-lg-8 d-flex grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-wrap justify-content-between">
+          <h4 class="card-title mb-3">Route Update</h4>
+        </div>
+        <div class="row">
+          <form class="forms-sample" method="post" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Origin</label>
+                <input type="text" class="form-control p-input" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ route.origin }}">
+                <small id="emailHelp" class="form-text text-muted text-success"><span class="fa fa-info mt-1"></span>  We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control p-input" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Example textarea</label>
+                <textarea class="form-control p-input" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+            
+            
+            <div class="col-12">
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                <input type="submit" value="Update">
+            </div>
+        </form>
+      
         </div>
       </div>
     </div>
-  </div> 
+  </div>
+</div>  
 {% endblock %}

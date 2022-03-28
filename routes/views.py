@@ -1,6 +1,7 @@
+
+from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView
-from django.shortcuts import render
 from .models import Route
 
 
@@ -12,6 +13,9 @@ class RouteListView(ListView):
 
 class RouteUpdate(UpdateView):
     model = Route
-    fields = ['origin','destination','distance','condition','cost']
+    fields = ['origin','destination','distance','cost']
     template_name = 'route_update_form.html'
     context_object_name = 'route'
+
+    def get_success_url(self):
+        return reverse('route-list')
