@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import RouteListView, RouteUpdate
+from .views import RouteListView, RouteUpdate, update
 
 urlpatterns = [
     path('routes/',RouteListView.as_view(), name='route-list'),
-    path('routes/<int:pk>/update', RouteUpdate.as_view(), name='route-update'),
+    path('routes/<int:pk>/update', update, name='route-update'),
 ]
