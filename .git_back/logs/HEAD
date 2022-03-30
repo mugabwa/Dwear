@@ -1,0 +1,20 @@
+0000000000000000000000000000000000000000 7241b3b6e28bf2f42a97110f36a173a4e61c3340 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643830459 +0000	commit (initial): initial commit
+7241b3b6e28bf2f42a97110f36a173a4e61c3340 0000000000000000000000000000000000000000 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643830686 +0000	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 7241b3b6e28bf2f42a97110f36a173a4e61c3340 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643830686 +0000	Branch: renamed refs/heads/master to refs/heads/main
+7241b3b6e28bf2f42a97110f36a173a4e61c3340 550800bd15d916943db4bb964ef194cb177837a1 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643833286 +0000	pull: Fast-forward
+550800bd15d916943db4bb964ef194cb177837a1 451508af675abbc1b2a7a2ba44c854a2ee34036e Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643834445 +0000	pull: Fast-forward
+451508af675abbc1b2a7a2ba44c854a2ee34036e 57d633d14a285809b3349f91dd5adaaf559e0bde Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1643921955 +0000	commit: routes
+57d633d14a285809b3349f91dd5adaaf559e0bde 11a38b33026fe19a5515b6ce8084cfe26e6cc730 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1644143722 +0000	commit: route-update
+11a38b33026fe19a5515b6ce8084cfe26e6cc730 6a9b71dc44ba33400d76d31dd8d5fc4392aeff04 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1644323037 +0000	commit: updates
+6a9b71dc44ba33400d76d31dd8d5fc4392aeff04 93f51ec5613a5f762d47583e94c58c2e28fcaa12 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1645124442 +0000	commit: files
+93f51ec5613a5f762d47583e94c58c2e28fcaa12 71859e989a77179a1d335d3729a80f6bb4f3fb9b Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1647781405 +0000	commit: Damage Wear
+71859e989a77179a1d335d3729a80f6bb4f3fb9b 0459be4cad8e6a3bc86ce31e2436d0d3fa8cc9c7 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1647782112 +0000	commit: Damage Wear
+0459be4cad8e6a3bc86ce31e2436d0d3fa8cc9c7 4aef3ef0a8846376721a29413d224c69d8133664 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1648117908 +0000	pull: Fast-forward
+4aef3ef0a8846376721a29413d224c69d8133664 4aef3ef0a8846376721a29413d224c69d8133664 Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1648123078 +0000	checkout: moving from main to mugabwa
+4aef3ef0a8846376721a29413d224c69d8133664 0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b Ubuntu <mugasAzure@mugasVM.fmi5k4z1aq3uba1rqgxztsnevh.gx.internal.cloudapp.net> 1648123108 +0000	commit: Changes on the admin
+0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b 4aef3ef0a8846376721a29413d224c69d8133664 Mugabwa <mugabwaallanmas@gmail.com> 1648125646 +0000	checkout: moving from mugabwa to main
+4aef3ef0a8846376721a29413d224c69d8133664 0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b Mugabwa <mugabwaallanmas@gmail.com> 1648125743 +0000	checkout: moving from main to mugabwa
+0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b 4aef3ef0a8846376721a29413d224c69d8133664 Mugabwa <mugabwaallanmas@gmail.com> 1648126211 +0000	checkout: moving from mugabwa to main
+4aef3ef0a8846376721a29413d224c69d8133664 0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b Mugabwa <mugabwaallanmas@gmail.com> 1648126249 +0000	merge mugabwa: Fast-forward
+0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b 0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b Mugabwa <mugabwaallanmas@gmail.com> 1648126270 +0000	checkout: moving from main to mugabwa
+0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b 0cb4609b65f9bf3a3aed4ed6e0ed6ac7f8154e3b Mugabwa <mugabwaallanmas@gmail.com> 1648126320 +0000	checkout: moving from mugabwa to main
