@@ -1,5 +1,28 @@
-<form method="post" enctype="multipart/form-data">
-    <!-- {% csrf_token %} -->
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+  <div class="col-lg-8 d-flex grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-wrap justify-content-between">
+          <h4 class="card-title mb-3">Route File Update</h4>
+        </div>
+        <div class="row">
+          <form class="forms-sample" method="post" action="{% url 'route-update' route.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="col-12">
+                <input type="submit" value="Update">
+            </div>
+        </form>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+{% endblock %}
