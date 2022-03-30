@@ -1,12 +1,10 @@
 from django.db import IntegrityError
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import UserCreationForm
 
 from client.models import CustomUser
-from routes.forms import FileForm
+
 
 @csrf_exempt
 def loadData(request):
@@ -56,17 +54,6 @@ def sendData(request):
         data = request.POST.get('data')
         print(data)
     return HttpResponse("SUCCESS")
-
-@csrf_exempt
-def uploadFile(request):
-    if request.method == 'POST':
-        form = FileForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('route-list')
-    else:
-        form = FileForm()
-    return render(request, 'mfile.html', {'form': form})
 
 
 @csrf_exempt
