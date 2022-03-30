@@ -1,9 +1,11 @@
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render , redirect
 
-from .forms import RouteForm
+
+from .forms import RouteForm, FileForm
 from .models import Route
 
 
@@ -38,3 +40,14 @@ def update(request, pk=None):
         "route": route
     }
     return render(request, 'route_update_form.html', context)
+
+@csrf_exempt
+def upload_file(request):
+    if request.method == 'POST':
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('route-list')
+    else:
+        form = FileForm()
+    return render(request, 'mfile.html', {'form': form})
