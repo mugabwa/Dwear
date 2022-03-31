@@ -1,4 +1,3 @@
-from enum import auto
 from django.db import models
 
 
@@ -11,9 +10,7 @@ class Route(models.Model):
     cost = models.FloatField(default=0.0)
     filepath = models.FileField(upload_to='files/', null=True, blank=True, verbose_name='')
     calculated_cost = models.FloatField(default=0.0)
+    cost_status = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return "From: " + self.origin + "To: " + self.destination
-
-
-
