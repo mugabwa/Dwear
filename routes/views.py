@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render , redirect
 
 
+from .process_data import cost_data
 from .forms import RouteForm, FileForm
 from .models import Route
 
@@ -37,6 +38,7 @@ def update(request, pk=None):
             return redirect("route-list")
         elif form1.is_valid():
             form1.save()
+            calculate_cost(pk)
             return redirect('route-list')
         else:
             return render(request, 'route_update_form.html')
@@ -47,13 +49,10 @@ def update(request, pk=None):
     }
     return render(request, 'route_update_form.html', context)
 
-# @csrf_exempt
-# def upload_path(request, pk=None):
-#     route = Route.objects.get(id=pk)
-#     form = FileForm(instance=route)
-#     if request.method == 'POST':
-#         form = FileForm(request.POST, request.FILES, instance=route)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('route-list')
-#     return update(request, pk)
+
+def calculate_cost(pk):
+    route = Route.objects.get(id=pk)
+    cost = cost_data(str(route.filepath))
+    route.calculated_cost = cost
+    route.cost_status = True
+    route.save()
