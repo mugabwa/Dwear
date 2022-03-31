@@ -56,3 +56,16 @@ def calculate_cost(pk):
     route.calculated_cost = cost
     route.cost_status = True
     route.save()
+
+def create_route(request):
+    context = {}
+    form = RouteForm(request.POST or None)
+    if request.method == 'POST':
+        form = RouteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('route-list')
+    context = {
+        'form': form,
+    }
+    return render(request, 'create_route.html', context)
