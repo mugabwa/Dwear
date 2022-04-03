@@ -3,15 +3,13 @@
  {% load crispy_forms_tags %}
 {% block content %}
 <div class="row">
+
   <div class="col-lg-8 d-flex grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <div class="d-flex flex-wrap justify-content-between">
-          <h4 class="card-title mb-3">Route Update</h4>
-        </div>
-        <div class="row">
+          <h4 class="card-title mb-3">Update Route</h4>
+          <p class="card-description">Update the current route</p>
           <form class="forms-sample" method="post" action="{% url 'route-update' route.id %}">
-            
               <div class="form-group">
                 {{ form.origin | as_crispy_field }}
 
@@ -28,16 +26,14 @@
             <div class="form-group">
               {{ form.condition | as_crispy_field }}
           </div>
-
             <div class="col-12">
-                <input type="submit" value="Update">
-            </div>
+              <button type="submit" class="btn btn-secondary">Update Route</button>
+          </div>
         </form>
-      
-        </div>
-      </div>
     </div>
   </div>
+</div>
+
   <div class="col-lg-4 d-flex grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
@@ -49,9 +45,9 @@
             <div class="form-group">
                 {{ form1.as_p }}
             </div>
-            <div class="col-4">
-                <input type="submit" value="Update">
-            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-secondary">Upload File</button>
+          </div>
         </form>
       
         </div>
