@@ -6,12 +6,10 @@
   <div class="col-lg-8 d-flex grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <div class="d-flex flex-wrap justify-content-between">
-          <h4 class="card-title mb-3">Route Update</h4>
-        </div>
-        <div class="row">
-          <form class="forms-sample" method="post" action="{% url 'route-create' route.id %}">
-            
+          <h4 class="card-title mb-3">Create Route</h4>
+          <p class="card-description">Add a new route</p>
+          <form class="forms-sample" method="post" action="{% url 'route-create'%}">
+              {% csrf_token %}
               <div class="form-group">
                 {{ form.origin | as_crispy_field }}
 
@@ -28,15 +26,11 @@
             <div class="form-group">
               {{ form.condition | as_crispy_field }}
           </div>
-
             <div class="col-12">
-                <input type="submit" value="Update">
-            </div>
+              <button type="submit" class="btn btn-secondary">Add</button>
+          </div>
         </form>
-      
-        </div>
-      </div>
     </div>
   </div>
-</div>  
+</div>
 {% endblock %}
