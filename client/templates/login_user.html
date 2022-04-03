@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+    <div class="row">
+        <div class="col-lg-8 d-flex grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-wrap justify-content-between">
+                <h4 class="card-title mb-3">Sign up</h4>
+              </div>
+              <div class="row">
+                <form class="forms-sample" method="post" action="{% url 'register-user' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      {{ form.email | as_crispy_field }}
+                  </div>
+                     <div class="form-group">
+                      {{ form.password | as_crispy_field }}
+                  </div>
+                  <div class="col-12">
+                      <input type="submit" value="Login">
+                  </div>
+              </form>
+              <a href="{% url ''}">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
 
 {% endblock %}
