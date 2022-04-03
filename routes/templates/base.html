@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vendors/typicons.font/font/typicons.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/vertical-layout-light/style.css' %}">
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>
 
   </head>
     <body class="sidebar-light">
@@ -18,8 +18,8 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-info">
 
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="index.html"><img src="{% static 'images/logo.svg' %}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-mini.svg' %}" alt="logo"/></a>
             <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
               <span class="typcn typcn-th-menu"></span>
             </button>
@@ -48,6 +48,10 @@
                 <a class="nav-link" href="{% url 'logout-user' %}">
                   Logout
                 </a>
+                {% else %}
+                <a class="nav-link" href="{% url 'login' %}">
+                  Login
+                </a>
                 {% endif %}
               </li>
               <li class="nav-item dropdown d-flex">
@@ -59,7 +63,7 @@
                   <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                      <img src="{% static 'images/faces/face4.jpg' %}" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                       <h6 class="preview-subject ellipsis font-weight-normal">David Grey
@@ -71,7 +75,7 @@
                   </a>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                      <img src="{% static 'images/faces/face2.jpg' %}" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                       <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
@@ -83,7 +87,7 @@
                   </a>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                      <img src="{% static 'images/faces/face3.jpg' %}" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                       <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
@@ -173,7 +177,7 @@
               <li class="nav-item">
                 <div class="d-flex sidebar-profile">
                   <div class="sidebar-profile-image">
-                    <img src="images/faces/face29.png" alt="image">
+                    <img src="{% static 'images/faces/face29.png' %}" alt="image">
                     <span class="sidebar-status-indicator"></span>
                   </div>
                   <div class="sidebar-profile-name">
@@ -230,14 +234,14 @@
         </div>
       </div>
         
-      <script src="vendors/js/vendor.bundle.base.js"></script>
-      <script src="js/off-canvas.js"></script>
-      <script src="js/hoverable-collapse.js"></script>
-      <script src="js/template.js"></script>
-      <script src="js/settings.js"></script>
-      <script src="js/todolist.js"></script>
-      <script src="vendors/progressbar.js/progressbar.min.js"></script>
-      <script src="vendors/chart.js/Chart.min.js"></script>
-      <script src="js/dashboard.js"></script>
+      <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+      <script src="{% static 'js/off-canvas.js' %} "></script>
+      <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+      <script src="{% static 'js/template.js' %}"></script>
+      <script src="{% static 'js/settings.js' %}"></script>
+      <script src="{% static 'js/todolist.js' %}"></script>
+      <script src="{% static 'vendors/progressbar.js/progressbar.min.js' %}"></script>
+      <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+      <script src="{% static 'js/dashboard.js' %}"></script>
     </body>
 </html>
