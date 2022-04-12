@@ -1,9 +1,13 @@
 from django.db import IntegrityError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 from client.models import CustomUser
+from routes.models import Route
+from routes.process_data import cost_data
 
 
 @csrf_exempt
@@ -45,15 +49,27 @@ def stopData(request):
     if request.method=='POST':
         data = request.POST.get('data')
         id = data.split('=')[1]
-
         print(id)
     return HttpResponse("SUCCESS")
+
+def addFileToDB(file_path, pk):
+    route = Route.objects.get(id = pk)
+    route.filepath = file_path
+    cost = cost_data(str(file_path))
+    route.calculated_cost = cost
+    route.cost_status = True
+    route.save()
+
 @csrf_exempt
 def sendData(request):
     if request.method=="POST":
-        data = request.POST.get('data')
-        print(data)
-    return HttpResponse("SUCCESS")
+        if request.FILES:
+            file_id = request.POST.get('file_id')
+            file = request.FILES.get('data')
+            path = default_storage.save(file.name,ContentFile(file.read()))
+            addFileToDB(path, file_id)
+            return HttpResponse("RECEIVED")
+    return HttpResponseBadRequest("ERROR OCCURRED!!!")
 
 
 @csrf_exempt
