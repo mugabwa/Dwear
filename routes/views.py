@@ -69,3 +69,5 @@ def create_route(request):
         'form': form,
     }
     return render(request, 'create_route.html', context)
+
+# def plot_graph(request, pk):
