@@ -56,6 +56,7 @@ def addFileToDB(file_path, pk):
     route = Route.objects.get(id = pk)
     route.filepath = file_path
     cost = cost_data(str(file_path))
+    print(cost)
     route.calculated_cost = cost
     route.cost_status = True
     route.save()
@@ -68,6 +69,7 @@ def sendData(request):
             file = request.FILES.get('data')
             path = default_storage.save(file.name,ContentFile(file.read()))
             addFileToDB(path, file_id)
+            # print(path, file_id)
             return HttpResponse("RECEIVED")
     return HttpResponseBadRequest("ERROR OCCURRED!!!")
 

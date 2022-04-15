@@ -8,8 +8,8 @@ def read_data(file, columns):
         raise AssertionError(file, 'not found')
     extension = file.split('.')[-1]
     if extension.lower() == 'txt':
-        file = convert_txt_to_csv(file)
-    with open(file, 'r') as fl:
+        file1 = convert_txt_to_csv(file)
+    with open(file1, 'r') as fl:
         lines = fl.readlines()
         l_str = [x.rstrip('\n').split(',') for x in lines]
         row_no = len(l_str)
