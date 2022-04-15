@@ -26,6 +26,7 @@ def convert_txt_to_csv(file_path):
     i_path = file_path.split('\\')
     i_path[-1] = '.'.join([i_path[-1].split('.')[0],'csv'])
     path_n = '\\'.join(i_path)
-    data = pd.read_csv(file_path, header=None)
-    data.to_csv(path_n, index=False, header=False)
+    if not os.path.isfile(path_n):
+        data = pd.read_csv(file_path, header=None)
+        data.to_csv(path_n, index=False, header=False)
     return path_n

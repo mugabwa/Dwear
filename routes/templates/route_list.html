@@ -62,6 +62,9 @@
                         </div>
                     </td>
                     <td>
+                        <button onclick="location.href=`{% url 'route-graph' route.id %}`" type="button" class="btn btn-sm btn-secondary">Graph Display</button>
+                    </td>
+                    <td>
                         <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-secondary">Edit Info</button>
                     </td>
                 </tr>
