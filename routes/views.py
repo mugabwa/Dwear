@@ -1,4 +1,5 @@
-import plotly.express as px
+import os
+import numpy as np
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView
@@ -74,6 +75,9 @@ def create_route(request):
 
 def plot_graph(request, pk):
     route = Route.objects.get(id=pk)
-    data_path = route.get('filepath')
-    data = read_data(data_path)
-    return render(request, 'graph_data.html', {'data': data})
+    data_path = route.filepath
+    cur_dir = os.getcwd()
+    cur_dir += "/media/"
+    data_file = os.path.join(cur_dir, str(data_path))
+    data = read_data(data_file,[2]).flatten()
+    return render(request, 'graph_data.html', {'data': data.tolist(), 'data_len': len(data)})
