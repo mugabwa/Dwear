@@ -14,14 +14,12 @@ from .models import Route
 
 
 class RouteListView(LoginRequiredMixin, ListView):
-    login_url = reverse('login')
     model = Route
     template_name = 'route_list.html'
     context_object_name = 'routes'
 
 
 class RouteUpdate(LoginRequiredMixin, UpdateView):
-    login_url = reverse('login')
     model = Route
     fields = ['origin', 'destination', 'distance', 'cost']
     template_name = 'route_update_form.html'
@@ -30,7 +28,7 @@ class RouteUpdate(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('route-list')
 
-@login_required(login_url=reverse('login'))
+@login_required
 @csrf_exempt
 def update(request, pk=None):
     route = Route.objects.get(id=pk)
@@ -63,7 +61,7 @@ def calculate_cost(pk):
     route.cost_status = True
     route.save()
 
-@login_required(login_url=reverse('login'))
+@login_required
 def create_route(request):
     context = {}
     form = RouteForm(request.POST or None)
@@ -77,7 +75,7 @@ def create_route(request):
     }
     return render(request, 'create_route.html', context)
 
-@login_required(login_url=reverse('login'))
+@login_required
 def plot_graph(request, pk):
     route = Route.objects.get(id=pk)
     data_path = route.filepath
