@@ -6,10 +6,12 @@ class UserForm(forms.ModelForm):
     class Meta:
         FORM_CONTOL = 'form-control'
         model = CustomUser
-        fields = ["email", "password"]
+        fields = ["email", "first_name", "last_name", "password"]
 
         widgets = {
             'email': forms.TextInput(attrs={'class': FORM_CONTOL, 'type': 'email'}),
+            'first_name': forms.TextInput(attrs={'class': FORM_CONTOL, 'type': 'text'}),
+            'last_name': forms.TextInput(attrs={'class': FORM_CONTOL, 'type': 'text'}),
             'password': forms.TextInput(attrs={'class': FORM_CONTOL, 'type': 'password'}),
         }
 

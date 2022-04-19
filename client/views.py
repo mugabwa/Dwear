@@ -5,6 +5,8 @@ from django.contrib.auth import views as auth_views
 from .forms import UserForm, LoginForm
 
 def create_user(request):
+    if request.user.is_authenticated:
+        return redirect('route-list')
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
@@ -20,4 +22,5 @@ def create_user(request):
 
 class LoginUser(auth_views.LoginView):
     template_name='login_user.html'
+    redirect_authenticated_user=True
     authentication_form = LoginForm
