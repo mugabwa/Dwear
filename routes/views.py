@@ -1,11 +1,11 @@
 import os
-import numpy as np
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render , redirect
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from .process_data import cost_data
 from .read_file_data import read_data
@@ -13,13 +13,15 @@ from .forms import RouteForm, FileForm
 from .models import Route
 
 
-class RouteListView(ListView):
+class RouteListView(LoginRequiredMixin, ListView):
+    login_url = reverse('login')
     model = Route
     template_name = 'route_list.html'
     context_object_name = 'routes'
 
 
-class RouteUpdate(UpdateView):
+class RouteUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse('login')
     model = Route
     fields = ['origin', 'destination', 'distance', 'cost']
     template_name = 'route_update_form.html'
@@ -28,6 +30,7 @@ class RouteUpdate(UpdateView):
     def get_success_url(self):
         return reverse('route-list')
 
+@login_required(login_url=reverse('login'))
 @csrf_exempt
 def update(request, pk=None):
     route = Route.objects.get(id=pk)
@@ -60,6 +63,7 @@ def calculate_cost(pk):
     route.cost_status = True
     route.save()
 
+@login_required(login_url=reverse('login'))
 def create_route(request):
     context = {}
     form = RouteForm(request.POST or None)
@@ -73,6 +77,7 @@ def create_route(request):
     }
     return render(request, 'create_route.html', context)
 
+@login_required(login_url=reverse('login'))
 def plot_graph(request, pk):
     route = Route.objects.get(id=pk)
     data_path = route.filepath
