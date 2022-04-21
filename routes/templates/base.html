@@ -27,10 +27,15 @@
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             {% if request.user.is_authenticated %}
-            <ul class="navbar-nav mr-lg-2">
+            <ul id="menu_id" class="navbar-nav mr-lg-2">
               <li class="nav-item  d-none d-lg-flex">
-                <a class="nav-link active" href="{% url 'route-list' %}">
+                <a class="nav-link men_u" href="{% url 'route-list' %}">
                   Routes
+                </a>
+              </li>
+              <li class="nav-item  d-none d-lg-flex">
+                <a class="nav-link men_u" href="{% url 'user-list' %}">
+                  Users
                 </a>
               </li>
             </ul>
@@ -80,7 +85,7 @@
               <li class="nav-item">
                 <div class="d-flex sidebar-profile">
                   <div class="sidebar-profile-image">                    
-                    <img src="{% static 'images/faces/image3.jpg' %}" alt="image">
+                    <img src="{% static 'images/faces/image2.jpg' %}" alt="image">
                     <span class="sidebar-status-indicator"></span>
                   </div>
                   <div class="sidebar-profile-name">
@@ -120,7 +125,21 @@
           
         </div>
       </div>
-        
+      <script>
+        var header = document.getElementById("menu_id");
+        var links = header.getElementsByClassName("men_u");
+        console.log(links);
+        for (let i=0; i<links.length; i++){
+          links[i].addEventListener("loadstart", function() {
+            let current = document.getElementsByClassName("active");
+            if (current.length > 0) {
+              current[0].className = current[0].className.replace(" active", "");
+            }
+            // current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+      </script>
       <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
       <script src="{% static 'js/off-canvas.js' %} "></script>
       <script src="{% static 'js/hoverable-collapse.js' %}"></script>
