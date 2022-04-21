@@ -5,7 +5,7 @@
     <div class="col-lg-8 d-flex grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-            <h4 class="card-title mb-3">Sign up</h4>
+            <h4 class="card-title mb-3">User Registration</h4>
             <p class="card-description">User registration form</p>
             <form class="forms-sample" method="post" action="{% url 'register-user' %}">
               {% csrf_token %}
@@ -21,13 +21,18 @@
               <div class="form-group">
                   {{ form.password | as_crispy_field }}
               </div>
+              <div class="form-check col-12">
+                <label class="form-check-label">
+                  {{ form.is_staff }}
+                  User Is Staff
+                </label>
+                
+              </div>
+
               <div class="col-12">
-                <button type="submit" class="btn btn-secondary">Sign Up</button>
+                <button type="submit" class="btn btn-secondary">Add User</button>
             </div>
           </form>
-          <p class="card-description mt-3">Already have an account,
-            <a  href="{% url 'login' %}">Login</a>
-           </p>
       </div>
     </div>
   </div>  

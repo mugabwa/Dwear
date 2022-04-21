@@ -1,20 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
 
 from .forms import UserForm, LoginForm
 
+@login_required
 def create_user(request):
-    if request.user.is_authenticated:
-        return redirect('route-list')
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=email, password=password)
-            login(request, user)
             return redirect('route-list')
     else:
         form = UserForm()
