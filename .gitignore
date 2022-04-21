@@ -13,6 +13,7 @@ setup.cfg
 .DS_Store?
 /media
 .idea
+/static
 # C extensions
 *.so
 
