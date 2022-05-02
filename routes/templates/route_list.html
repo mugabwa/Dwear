@@ -59,11 +59,9 @@
                     <td>
                         <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-secondary">Edit Info</button>
                     </td>
-                    {% if request.user.is_staff %}
                     <td>
-                        <button onclick="location.href=`{% url 'route-delete' route.id %}`" type="button" class="btn btn-sm btn-danger">Remove</button>
+                        <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-danger">Remove</button>
                     </td>
-                    {% endif %}
                 </tr>
                 {% endfor %}
               </tbody>
