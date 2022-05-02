@@ -6,7 +6,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Personal Information', {'fields':['email', 'first_name',
         'last_name']}),
-        ('User Login Information', {'fields': ['is_staff', 'is_active',
+        ('User Login information', {'fields': ['is_staff', 'is_active',
         'password', 'date_joined']}),
     ]
 
