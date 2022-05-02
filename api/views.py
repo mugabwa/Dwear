@@ -44,7 +44,6 @@ def fetchData(request):
 
     return HttpResponse("ERROR:-Not found")
 
-
 def addFileToDB(file_path, pk):
     route = Route.objects.get(id = pk)
     route.filepath = file_path
@@ -62,7 +61,6 @@ def sendData(request):
             file = request.FILES.get('data')
             path = default_storage.save(file.name,ContentFile(file.read()))
             addFileToDB(path, file_id)
-            # print(path, file_id)
             return HttpResponse("RECEIVED")
     return HttpResponseBadRequest("ERROR OCCURRED!!!")
 

@@ -62,6 +62,13 @@ def calculate_cost(pk):
     route.save()
 
 @login_required
+def delete_route(request, pk):
+    if request.user.is_staff:
+        route = Route.objects.get(id=pk)
+        route.delete()
+    return redirect('route-list')
+
+@login_required
 def create_route(request):
     context = {}
     form = RouteForm(request.POST or None)
@@ -74,13 +81,6 @@ def create_route(request):
         'form': form,
     }
     return render(request, 'create_route.html', context)
-
-@login_required
-def delete_route(request, pk):
-    if request.user.is_staff:
-        route = Route.objects.get(id=pk)
-        route.delete()
-    return redirect('route-list')
 
 @login_required
 def plot_graph(request, pk):

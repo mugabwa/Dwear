@@ -58,4 +58,4 @@ def remove_admin_user(request, pk):
         user = CustomUser.objects.get(id=pk)
         user.is_staff = False
         user.save()
-    return redirect('user-list')
+    return redirect('user-list') 

@@ -29,7 +29,7 @@
             {% if request.user.is_authenticated %}
             <ul id="menu_id" class="navbar-nav mr-lg-2">
               <li class="nav-item  d-none d-lg-flex">
-                <a class="nav-link men_u" href="{% url 'route-list' %}">
+                <a class="nav-link active men_u" href="{% url 'route-list' %}">
                   Routes
                 </a>
               </li>
@@ -118,7 +118,6 @@
           <!-- End Sidebar -->
           <div class="main-panel">
             <div class="content-wrapper">
-              <h1>Static {% static 'vendors/typicons.font/font/typicons.css' %}</h1>
               {% block content %}
               {% endblock %}
             </div>
@@ -126,21 +125,7 @@
           
         </div>
       </div>
-      <script>
-        var header = document.getElementById("menu_id");
-        var links = header.getElementsByClassName("men_u");
-        console.log(links);
-        for (let i=0; i<links.length; i++){
-          links[i].addEventListener("loadstart", function() {
-            let current = document.getElementsByClassName("active");
-            if (current.length > 0) {
-              current[0].className = current[0].className.replace(" active", "");
-            }
-            // current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-          });
-        }
-      </script>
+        
       <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
       <script src="{% static 'js/off-canvas.js' %} "></script>
       <script src="{% static 'js/hoverable-collapse.js' %}"></script>
