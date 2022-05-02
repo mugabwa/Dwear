@@ -44,6 +44,13 @@ def fetchData(request):
 
     return HttpResponse("ERROR:-Not found")
 
+@csrf_exempt
+def stopData(request):
+    if request.method=='POST':
+        data = request.POST.get('data')
+        id = data.split('=')[1]
+        print(id)
+    return HttpResponse("SUCCESS")
 
 def addFileToDB(file_path, pk):
     route = Route.objects.get(id = pk)

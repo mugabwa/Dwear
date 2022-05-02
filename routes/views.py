@@ -76,13 +76,6 @@ def create_route(request):
     return render(request, 'create_route.html', context)
 
 @login_required
-def delete_route(request, pk):
-    if request.user.is_staff:
-        route = Route.objects.get(id=pk)
-        route.delete()
-    return redirect('route-list')
-
-@login_required
 def plot_graph(request, pk):
     route = Route.objects.get(id=pk)
     data_path = route.filepath
