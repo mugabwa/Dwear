@@ -1,9 +1,11 @@
+from django.views.generic import ListView
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import UserForm, LoginForm
+from .models import CustomUser
 
 @login_required
 def create_user(request):
