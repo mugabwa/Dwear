@@ -14,7 +14,10 @@ setup.cfg
 /media
 .idea
 <<<<<<< HEAD
+<<<<<<< HEAD
 **/static
+=======
+>>>>>>> parent of b76a6a0... Some changes
 =======
 >>>>>>> parent of b76a6a0... Some changes
 # C extensions
