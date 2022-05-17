@@ -15,5 +15,8 @@ def read_data(file, columns):
         data = np.zeros([row_no,col_no])
         for index, line in enumerate(l_str):    #can change slice
             for i, j in enumerate(columns):
-                data[index, i] = line[j]
+                try:
+                    data[index, i] = line[j]
+                except ValueError:
+                    data[index, i] = 0
     return data
