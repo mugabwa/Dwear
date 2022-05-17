@@ -19,8 +19,8 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-info">
 
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo" href="{% url 'route-list' %}"><img src="{% static 'images/logo.svg' %}" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="{% url 'route-list' %}"><img src="{% static 'images/logo-mini.svg' %}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="{% url 'route-list' %}"><img src="{% static 'images/logo.png' %}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="{% url 'route-list' %}"><img src="{% static 'images/logo-mini.png' %}" alt="logo"/></a>
             <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
               <span class="typcn typcn-th-menu"></span>
             </button>
@@ -29,8 +29,13 @@
             {% if request.user.is_authenticated %}
             <ul class="navbar-nav mr-lg-2">
               <li class="nav-item  d-none d-lg-flex">
-                <a class="nav-link active men_u" href="{% url 'route-list' %}">
+                <a class="nav-link men_u" href="{% url 'route-list' %}">
                   Routes
+                </a>
+              </li>
+              <li class="nav-item  d-none d-lg-flex">
+                <a class="nav-link men_u" href="{% url 'user-list' %}">
+                  Users
                 </a>
               </li>
             </ul>
@@ -80,7 +85,7 @@
               <li class="nav-item">
                 <div class="d-flex sidebar-profile">
                   <div class="sidebar-profile-image">                    
-                    <img src="{% static 'images/faces/image3.jpg' %}" alt="image">
+                    <img src="{% static 'images/faces/image2.jpg' %}" alt="image">
                     <span class="sidebar-status-indicator"></span>
                   </div>
                   <div class="sidebar-profile-name">
