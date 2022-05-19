@@ -32,16 +32,6 @@
                     </td>
                     <td>
                         <div>
-                            Road Condition
-                            {% if route.condition %}
-                            <div class="font-weight-bold mt-1">Good</div>
-                            {% else %}
-                            <div class="font-weight-bold mt-1">Bad</div>
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>
-                        <div>
                             Original Cost
                             <div class="font-weight-bold mt-1">{{ route.cost }}</div>
                         </div>
@@ -60,7 +50,7 @@
                         <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-secondary">Edit Info</button>
                     </td>
                     <td>
-                        <button onclick="location.href=`{% url 'route-update' route.id %}`" type="button" class="btn btn-sm btn-danger">Remove</button>
+                        <button onclick="location.href=`{% url 'route-delete' route.id %}`" type="button" class="btn btn-sm btn-danger">Remove</button>
                     </td>
                 </tr>
                 {% endfor %}

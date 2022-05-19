@@ -46,10 +46,16 @@
                 {{ form1.as_p }}
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-secondary">Upload File</button>
+              <button type="submit" class="btn btn-secondary mb-3">Upload File</button>
           </div>
         </form>
-      
+        <p>You can directly recalculate the cost of the trip</p>
+        <form class="forms-sample" method="get" action="{% url 'recalculate-cost' route.id %}">
+          <div class="col-12">
+          <button type="submit" class="btn btn-secondary mt-3">Recalculate Cost</button>
+        </div>
+        </form>
+        
         </div>
       </div>
     </div>

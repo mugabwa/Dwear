@@ -56,7 +56,7 @@ def update(request, pk=None):
 
 def calculate_cost(pk):
     route = Route.objects.get(id=pk)
-    cost = cost_data(str(route.filepath))
+    cost = cost_data(str(route.filepath), route.distance)
     route.calculated_cost = cost
     route.cost_status = True
     route.save()
@@ -91,3 +91,8 @@ def plot_graph(request, pk):
     data_file = os.path.join(cur_dir, str(data_path))
     data = read_data(data_file,[2]).flatten()
     return render(request, 'graph_data.html', {'data': data.tolist(), 'data_len': len(data)})
+
+@login_required
+def recalculate_cost(request, pk):
+    calculate_cost(pk)
+    return redirect('route-list')

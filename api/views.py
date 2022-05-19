@@ -36,8 +36,10 @@ def fetchData(request):
         if origini and destinationi:
             if Route.objects.filter(origin=origini,destination=destinationi):
                 obj = Route.objects.values_list('cost').get(origin=origini, destination=destinationi)
+                obj1 = Route.objects.values_list('calculated_cost').get(origin=origini, destination=destinationi)
+                val = obj[0] + obj1[0]
                 print(obj)
-                return HttpResponse(obj[0])
+                return HttpResponse(val)
             else:
                 print("Not present")
                 return HttpResponse("ERROR:-Not found")
@@ -47,7 +49,7 @@ def fetchData(request):
 def addFileToDB(file_path, pk):
     route = Route.objects.get(id = pk)
     route.filepath = file_path
-    cost = cost_data(str(file_path))
+    cost = cost_data(str(file_path), route.distance)
     print(cost)
     route.calculated_cost = cost
     route.cost_status = True
