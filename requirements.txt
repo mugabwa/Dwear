@@ -2,7 +2,7 @@ asgiref==3.5.0
 automium==0.2.6
 automium-web==0.1.1
 backports.zoneinfo==0.2.1
-certifi==2021.10.8
+certifi==2022.12.7
 chardet==3.0.4
 charset-normalizer==2.0.12
 click==8.0.4
